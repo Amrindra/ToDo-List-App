@@ -1,0 +1,30 @@
+<%- include("header") -%>
+
+<div class="box" id="heading">
+  <h1><%= listTitle %></h1>
+</div>
+
+<div class="box">
+<!-- newListItems is from the "newListItems: results" inside the app.js -->
+  <%  newListItems.forEach(function(newItem){ %>
+    <!-- this "form" route is responsible for deleting items -->
+    <form class="" action="/delete" method="post">
+      <div class="item">
+        <input type="checkbox" name="checkBox" value="<%= newItem._id %>" onChange="this.form.submit()">
+        <!-- newItem.name is to select only name property from "newListItems:results" inside the app.js  -->
+        <p><%= newItem.name %></p>
+      </div>
+      <input type="hidden" name="listName" value="<%= listTitle %>"></input>
+    </form>
+
+  <%  }); %>
+
+  <!-- this "form" route is responsible for adding new items -->
+  <form class="item" action="/" method="post">
+    <input type="text" name="newItem" placeholder="Add new item here" autocomplete="off">
+    <button type="submit" name="list" value=<%= listTitle %>>+</button>
+  </form>
+
+</div>
+
+<%- include("footer") -%>
