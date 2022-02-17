@@ -15,7 +15,7 @@ app.set('view engine', 'ejs');
 // express.static is used to tell the browser to find the css file location in inside the "publick folder"
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://admin-amrindra:amrindra123@cluster0.dhbkw.mongodb.net/todolistDB?retryWrites=true&w=majority", { useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://<user-name>:<password>@cluster0.dhbkw.mongodb.net/todolistDB?retryWrites=true&w=majority", { useUnifiedTopology: true });
 
 const itemsSchema = {
   name: String,
